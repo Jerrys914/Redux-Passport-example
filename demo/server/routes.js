@@ -10,7 +10,6 @@ module.exports = (app) => {
   });
 
   app.post('/api/addTodo', (req, res) => {
-    console.log('yoo')
     todo.addTodo(req.body.todo, 'default', res);
   });
 
