@@ -31,8 +31,6 @@ app.use(flash()); // for the flash messages
 require('./passport/config.js')(passport); //oposite of requireing passport in config. we require the config and pass passport to the module.exports function
 require('./routes.js')(app, passport); //same as above but passing both the app and passport
 
-//GO TO PASSPORT/CONFIG.JS NEXT!!
-
 let port = 4000;
 app.listen(port,(err) => {
   console.log("Listening on port " + port);

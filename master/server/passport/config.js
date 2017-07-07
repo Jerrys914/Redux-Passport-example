@@ -26,7 +26,7 @@ let LocalSignup = new LocalStrategy({ //create local strategy for signing-up and
   usernameFeild: 'username', // same as local login
   passwordField: 'password', // same as local login
   passReqToCallback: true // pass request object - if false req is still in the callback parameters but is null
-}, 
+},
 (req, username, password, done) => {
   UserModel.findOne({username: username}, (err,user) => { // check if user exists in DB
     if(err){ return done(err) } //if error occured pass err to done. Failure redirect for passport.authenticate singup in routes.js is hit
@@ -47,7 +47,7 @@ let LocalSignup = new LocalStrategy({ //create local strategy for signing-up and
 
 module.exports = (passport) => { //passport being passed in from server.js anthing that requires us to access passport need to be inside here
   passport.serializeUser((user, done) => { //user is whatever was passed into successful done function above
-    if (Array.isArray(user)) { //not passport - just making sure the data comes in the correct form
+    if (Array.isArray(user)) { //not passport - just making sure the data comes in the correct format
       var id = user[0];
       user = {
         id: id
@@ -68,7 +68,3 @@ module.exports = (passport) => { //passport being passed in from server.js anthi
   passport.use('local-signup', LocalSignup);// we tell passport to associate our LocalSignup function with the name "local-singup"
   //These two line of code come into play for our passport.authenticate in our routes.js
 };
-
-//GO TO ROUTES.JS!!
-
-
