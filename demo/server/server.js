@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
-
+require('./routes.js')(app);
 let port = 4000;
 app.listen(port,(err) => {
   console.log("Listening on port " + port);
